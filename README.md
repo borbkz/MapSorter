@@ -40,3 +40,15 @@ $ curl http://www.kzstats.com/api/map | tac | tr -d "\"," | grep "mapname:\|diff
 
 ```
 
+### OSX example:
+```
+$ touch mytimes.txt
+
+$ echo "kz_11342, Time: 01:42.58 (PRO), Teleports: 0, Rank: 1/2" >> mytimes.txt
+
+$ curl http://www.kzstats.com/api/map | tail -r | tr -d "\"," | grep "mapname:\|difficulty:" \
+| sed "N;s/mapname://g;s/\n/,/; s/^[ \t]*//" | cat - <(sort -t, -k1,1 -k3 mytimes.txt) \
+| awk -F',' '{b=$2~/(TP)/?",":"";a[$1] = a[$1]","b$2};END{for(i in a)print i""a[i]}'  \
+| sed 's/(PRO),,/(PRO),/g' | tr -s " " >> timeswithtiers.csv
+
+```
