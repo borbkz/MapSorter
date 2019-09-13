@@ -2,10 +2,10 @@
 bash one liner for sorting finished local kz maps, should work with most versions of GNU coreutils. Has been tested on Debian, Cygwin, and OSX.
 
 
-##requirements
+## requirements
 Curl (or wget), on systems without the ```tac``` util (OSX, \*BSD) you may use ```tail -r```.
 
-##Input:
+## Input:
 Takes in a plain text file containing the console output from the finished maps option. Should be in the following format:
 
 ```
@@ -15,10 +15,10 @@ kz_11735, Time: 01:46.82 (TP), Teleports: 4, Rank: 1/21
 kz_11735, Time: 01:47.63 (PRO), Teleports: 0, Rank: 1/7
 ```
 
-##Output
+## Output
 Plaintext CSV file that can be opened in any spreadsheet program.
 
-##Usage:
+## Usage:
 In any KZtimer enabled server, paste the console output from the finished maps option into a text file and run the following command in the terminal:
 
 ```
