@@ -16,7 +16,7 @@ kz_11735, Time: 01:47.63 (PRO), Teleports: 0, Rank: 1/7
 ```
 
 ## Output
-Plaintext CSV file that can be opened in any spreadsheet program. Contains the difficulting rating, as well as any unfinished maps.
+Plaintext CSV file that can be opened in any spreadsheet program. Contains the difficulting rating, pro/tp times, as well as any unfinished maps.
 
 ## Usage:
 In any KZtimer enabled server, paste the console output from the finished maps option into a text file and run the following command in the terminal:
@@ -25,7 +25,7 @@ In any KZtimer enabled server, paste the console output from the finished maps o
 curl http://www.kzstats.com/api/map | tac | tr -d "\"," | grep "mapname:\|difficulty:" \
 | sed "N;s/mapname://g;s/\n/,/; s/^[ \t]*//" | cat - <(sort -t, -k1,1 -k3 <FILE.txt>) \
 | awk -F',' '{b=$2~/(TP)/?",":"";a[$1] = a[$1]","b$2};END{for(i in a)print i""a[i]}'  \
-| sed 's/(PRO),,/(PRO),/g' | tr -s " "
+| sed 's/(PRO),,/(PRO),/g' | tr -s " " >> <OUTPUT.csv>
 ```
 ### example:
 ```
@@ -36,7 +36,7 @@ $ echo "kz_11342, Time: 01:42.58 (PRO), Teleports: 0, Rank: 1/2" >> mytimes.txt
 $ curl http://www.kzstats.com/api/map | tac | tr -d "\"," | grep "mapname:\|difficulty:" \
 | sed "N;s/mapname://g;s/\n/,/; s/^[ \t]*//" | cat - <(sort -t, -k1,1 -k3 mytimestxt) \
 | awk -F',' '{b=$2~/(TP)/?",":"";a[$1] = a[$1]","b$2};END{for(i in a)print i""a[i]}'  \
-| sed 's/(PRO),,/(PRO),/g' | tr -s " " >> timeswithtiers.txt
+| sed 's/(PRO),,/(PRO),/g' | tr -s " " >> timeswithtiers.csv
 
 ```
 
