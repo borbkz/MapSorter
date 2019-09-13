@@ -18,6 +18,11 @@ kz_11735, Time: 01:47.63 (PRO), Teleports: 0, Rank: 1/7
 ## Output
 Plaintext CSV file that can be opened in any spreadsheet program. Contains the difficulting rating, pro/tp times, as well as any unfinished maps.
 
+```
+kz_11342, difficulty: 2, Time: 01:42.58 (PRO), Time: 01:44.95 (TP)
+kz_11735, difficulty: 2	, Time: 01:47.63 (PRO), Time: 01:46.82 (TP)
+```
+
 ## Usage
 In any KZtimer enabled server, paste the console output from the finished maps option into a text file and run the following command in the terminal:
 
