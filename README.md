@@ -27,7 +27,7 @@ curl http://www.kzstats.com/api/map | tac | tr -d "\"," | grep "mapname:\|diffic
 | awk -F',' '{b=$2~/(TP)/?",":"";a[$1] = a[$1]","b$2};END{for(i in a)print i""a[i]}'  \
 | sed 's/(PRO),,/(PRO),/g' | tr -s " " >> <OUTPUT.csv>
 ```
-### example:
+### GNU/Linux example:
 ```
 $ touch mytimes.txt
 
